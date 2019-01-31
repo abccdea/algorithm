@@ -29,17 +29,34 @@
 
                 <hr />
 
-                <h2>插入排序</h2>
-
-                <h3>题目描述</h3>
+                <h2>题目描述</h2>
 
                 <figure><img src="img/02-1.jpg" /></figure>
 
-                <p><code>Input：</code>n个数的无序数列</p>
+                <p><strong>输入</strong>： $n$ 个数的无序数列</p>
 
-                <p><code>Output：</code>n个数由小到大排列的数列</p>
+                <p><strong>输出</strong>： $n$ 个数由小到大排列的数列</p>
 
-                <h3>题目解答</h3>
+                <hr />
+
+                <h2>设计算法</h2>
+
+                <p><strong>增量方法</strong>，插入排序是增量方法，在已排序的子数组 $A[1..j-1]$ 后面，将 $A[j]$ 插入子数组的适当位置，产生排序好的子数组 $A[1..j]$</p>
+
+                <p><strong>分治方法</strong>，递归是典型的分治思想，归并排序，将原问题<strong>分解</strong>为几个规模较小但类似于原问题的子问题，递归的<strong>求解</strong>这些子问题，然后再<strong>合并</strong>子问题的解来建立原问题的解</p>
+
+                <hr />
+
+                <h2>题目解答</h2>
+
+                <ol>
+                    <li>插入排序</li>
+                    <li>归并排序</li>
+                </ol>
+
+                <hr />
+
+                <h3>插入排序</h3>
 
                 <ol>
                     <li>
@@ -62,22 +79,20 @@
                     </li>
                 </ol>
 
-                <p><em>伪代码：</em></p>
+                <h4>伪代码：</h4>
 
                 <pre><code>INSERTION-SORT(A)
-                    1 for j=2 to A.length
-                    2	key = A[j]
-                    3	// Insert A[j] into the sorted sequence A[1..j-1] 
-                    4	i = j - 1
-                    5	white i &gt; 0 and A[i] &gt; key
-                    6		A[i+1] = A[i]
-                    7		i = i - 1
-                    8	A[i + 1] = key
-                    </code></pre>
+                1 for j=2 to A.length
+                2	key = A[j]
+                3	// Insert A[j] into the sorted sequence A[1..j-1] 
+                4	i = j - 1
+                5	white i &gt; 0 and A[i] &gt; key
+                6		A[i+1] = A[i]
+                7		i = i - 1
+                8	A[i + 1] = key
+                </code></pre>
 
-                <hr />
-
-                <h2>分析算法</h2>
+                <h4>分析算法：</h4>
 
                 <p>分析算法就是<strong>分析算法需要的资源</strong></p>
 
@@ -153,11 +168,64 @@
 
                 <hr />
 
-                <h2>设计算法</h2>
+                <h3>归并排序</h3>
 
-                <p><strong>增量方法</strong>，前面分析的插入排序是增量方法的案例</p>
+                <ol>
+                    <li>
+                        <figure><img src="img/02-8.png" /></figure>
+                    </li>
+                    <li>
+                        <figure><img src="img/02-9.png" /></figure>
+                    </li>
+                    <li>
+                        <figure><img src="img/02-10.png" /></figure>
+                    </li>
+                    <li>
+                        <figure><img src="img/02-11.png" /></figure>
+                    </li>
+                    <li>
+                        <figure><img src="img/02-12.png" /></figure>
+                    </li>
+                    <li>
+                        <figure><img src="img/02-13.png" /></figure>
+                    </li>
+                    <li>
+                        <figure><img src="img/02-14.png" /></figure>
+                    </li>
+                    <li>
+                        <figure><img src="img/02-15.png" /></figure>
+                    </li>
+                    <li>
+                        <figure><img src="img/02-16.png" /></figure>
+                    </li>
+                </ol>
 
-                <p><strong>分治方法</strong></p>
+                <h4>伪代码：</h4>
+
+                <pre><code>MERGE ( A, p, q, r)
+                1  n1 = q - p + 1
+                2  n2 = r - q
+                3  let L[1..n1 + 1] and R[1.. n2 + 1] be new arrays
+                4  for i = 1 to n1
+                5       L[i] = A[p + i - 1]
+                6  for j = 1 to n2
+                7       R[j] = A[q + j]
+                8  L[n1 + 1] = ∞
+                9  R[n2 + 1] = ∞
+                10 i = 1
+                11 j = 1
+                12 for k = p to r
+                13       if L[i] &lt;= R[j]
+                </code></pre>
+                <pre><code>MERGE-SORT (A, p, r)
+                1  if p &lt; r
+                2       q = ⎣(p+r)/2⎦
+                3       MERGE-SORT (A, p, q)
+                4       MERGE-SORT (A, q+1, r)
+                5       MERGE (A, p, q, r)
+                </code></pre>
+
+                <h4>分析算法：</h4>
 
                 <hr />
             </div>
