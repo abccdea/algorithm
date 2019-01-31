@@ -127,6 +127,12 @@ a:hover {
 	margin: 1em 0 1em 0;
 }
 
+#content h3 {
+	font-size: 1.2em;
+	color: #000;
+	margin: 1em 0 1em 0;
+}
+
 #content p {
 	margin: 0 0 1.5em;
 }
