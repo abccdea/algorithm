@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Algorithm</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
+
+<body>
+
+    <div id="page">
+        <div id="toc">
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+            <div id='navtitle'>Algorithm Reference</div>
+            <ul>
+                <li><a href="./index.html">欢迎</a></li>
+                <li>基础知识
+                    <ul>
+                        <li><a href="./01.html">算法在计算中的作用</a></li>
+                        <li><a href="./02.html">算法基础</a></li>
+                    </ul>
+                </li>
+                <li>排序和顺序统计量
+                </li>
+                <li>数据结构
+                </li>
+                <li>高级设计和分析技术
+                </li>
+                <li>高级数据结构
+                </li>
+                <li>图算法
+                </li>
+                <li>算法问题选编
+                </li>
+            </ul>
+
+            <script>
+                function update_nav() {
+                    var str = location.href.toLowerCase();
+
+                    $("#toc li a").each(function () {
+                        if (str.indexOf(this.href.toLowerCase()) > -1) {
+                            $("li.highlight").removeClass("highlight");
+                            $(this).parent().addClass("highlight");
+                        }
+                    });
+                }
+
+                $(document).ready(update_nav);
+                $(window).on('hashchange', update_nav);
+            </script>
+        </div>
+
+        <div id="wrapper">
+            <h1>算法基础</h1>
+
+            <hr />
+
+            <h2>插入排序</h2>
+
+            <h3>题目描述</h3>
+
+            <figure><img src="img/02-1.png" /></figure>
+
+            <p><code>Input：</code>n个数的无序数列</p>
+
+            <p><code>Output：</code>n个数由小到大排列的数列</p>
+
+            <h3>题目解答</h3>
+
+            <ol>
+                <li>
+                    <figure><img src="img/02-2.png" /></figure>
+                </li>
+                <li>
+                    <figure><img src="img/02-3.png" /></figure>
+                </li>
+                <li>
+                    <figure><img src="img/02-4.png" /></figure>
+                </li>
+                <li>
+                    <figure><img src="img/02-5.png" /></figure>
+                </li>
+                <li>
+                    <figure><img src="img/02-6.png" /></figure>
+                </li>
+                <li>
+                    <figure><img src="img/02-7.png" /></figure>
+                </li>
+            </ol>
+
+            <p><em>伪代码：</em></p>
+
+            <pre><code>INSERTION-SORT(A)
+            1 for j=2 to A.length
+            2	key = A[j]
+            3	// Insert A[j] into the sorted sequence A[1..j-1] 
+            4	i = j - 1
+            5	white i &gt; 0 and A[i] &gt; key
+            6		A[i+1] = A[i]
+            7		i = i - 1
+            8	A[i + 1] = key
+            </code></pre>
+
+            <hr />
+
+            <h2>分析算法</h2>
+
+            <p>分析算法就是<strong>分析算法需要的资源</strong></p>
+
+            <p>假定通用的<strong>单处理器计算模型——随机访问机(RAM)</strong>来实现算法</p>
+
+            <p><strong>RAM模型包含</strong>真实计算机中常见的指令：算数指令、数据移动指令、控制指令，每条指令所需时间都为常量</p>
+
+            <p>$C_i$表示指令每次执行的时间</p>
+
+            <table>
+                <tr>
+                    <td>INSERTION-SORT ( A )</td>
+                    <td>代价</td>
+                    <td>次数</td>
+                </tr>
+                <tr>
+                    <td>for j = 2 to A.length</td>
+                    <td>$C_1$</td>
+                    <td>$n$</td>
+                </tr>
+                <tr>
+                    <td>key = A[j]</td>
+                    <td>$C_2$</td>
+                    <td>$n-1$</td>
+                </tr>
+                <tr>
+                    <td>// Insert A[j] into the sorted sequence A[1..j-1]</td>
+                    <td>$0$</td>
+                    <td>$n-1$</td>
+                </tr>
+                <tr>
+                    <td>i = j - 1</td>
+                    <td>$C_4$</td>
+                    <td>$n-1$</td>
+                </tr>
+                <tr>
+                    <td>white i > 0 and A[i] > key</td>
+                    <td>$C_5$</td>
+                    <td>$\sum_{j=2}^n t_j$</td>
+                </tr>
+                <tr>
+                    <td>A[i+1] = A[i]</td>
+                    <td>$C_6$</td>
+                    <td>$\sum_{j=2}^n (t_j-1)$</td>
+                </tr>
+                <tr>
+                    <td>i = i - 1</td>
+                    <td>$C_7$</td>
+                    <td>$\sum_{j=2}^n (t_j-1)$</td>
+                </tr>
+                <tr>
+                    <td>A[i + 1] = key</td>
+                    <td>$C_8$</td>
+                    <td>$n-1$</td>
+                </tr>
+            </table>
+            <p>该算法运行总时长：$T(n)=C_1n+C_2n+C_4(n-1)+C_5(\sum_{j=2}^n t_j)+C_6(\sum_{j=2}^n (t_j-1))+C_7(\sum_{j=2}^n
+                (t_j-1))+C_8(n-1)$</p>
+
+            <p>最佳情况：输入已排序，是$n$的<strong>线形函数</strong></p>
+
+            <p>最差情况：输入完全逆序，是$n$的<strong>二次函数</strong></p>
+
+            <p>只求最坏情况运行时间，理由：</p>
+
+            <ol>
+                <li>给出了运行时间的上界</li>
+                <li>最坏情况经常出现</li>
+                <li>平均情况与最坏情况大致一样差</li>
+            </ol>
+
+            <p><strong>增长量级</strong> $\mathcal{O} (n^2)$</p>
+
+            <hr />
+
+            <h2>设计算法</h2>
+
+            <p><strong>增量方法</strong>，前面分析的插入排序是增量方法的案例</p>
+
+            <p><strong>分治方法</strong></p>
+
+            <hr />
+
+            <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=default' async></script>
+        </div>
+    </div>
+
+</body>
+
+</html>
