@@ -1,122 +1,102 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="retina">
 
 <head>
-	<title>Algorithm</title>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="./style.css" />
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="css/global.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/web.css" media="screen" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </head>
 
-<body>
+<body onorientationchange="hideAll();">
+    <div id="topBar">
+        <div class="centered">
+            <button name="menu" type="button" role="checkbox" aria-checked="false"></button>
+            <h1 class="wrap"><a href="index.html" class="gohome pro">算法</a></h1>
+        </div>
+    </div>
+    <div class="fixed">
+        <div class="centered">
+            <div id="content">
+                <h1>算法在计算中的作用</h1>
 
-	<div id="page">
-		<div id="toc">
-			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+                <ol>
+                    <li>什么是算法</li>
+                    <li>为什么研究算法</li>
+                    <li>算法的作用</li>
+                </ol>
 
-			<div id='navtitle'>Algorithm Reference</div>
-			<ul>
-				<li><a href="./index.html">欢迎</a></li>
-				<li>基础知识
-					<ul>
-						<li><a href="./01.html">算法在计算中的作用</a></li>
-						<li><a href="./02.html">算法基础</a></li>
-					</ul>
-				</li>
-				<li>排序和顺序统计量
-				</li>
-				<li>数据结构
-				</li>
-				<li>高级设计和分析技术
-				</li>
-				<li>高级数据结构
-				</li>
-				<li>图算法
-				</li>
-				<li>算法问题选编
-				</li>
-			</ul>
+                <h2>什么是算法</h2>
 
-			<script>
-				function update_nav() {
-					var str = location.href.toLowerCase();
+                <p>算法就是任何良定义的计算过程</p>
 
-					$("#toc li a").each(function () {
-						if (str.indexOf(this.href.toLowerCase()) > -1) {
-							$("li.highlight").removeClass("highlight");
-							$(this).parent().addClass("highlight");
-						}
-					});
-				}
+                <p>算法就是把输入转换成输出的计算步骤的一个序列</p>
 
-				$(document).ready(update_nav);
-				$(window).on('hashchange', update_nav);
-			</script>
-		</div>
+                <p>算法是求解良说明的计算问题的工具</p>
 
-		<div id="wrapper">
-			<h1>算法在计算中的作用</h1>
+                <h2>为什么研究算法</h2>
 
-			<ol>
-				<li>什么是算法</li>
-				<li>为什么研究算法</li>
-				<li>算法的作用</li>
-			</ol>
+                <h3>算法解决哪种问题</h3>
 
-			<h2>什么是算法</h2>
+                <ol>
+                    <li>存在许多候选解，但绝大多数候选解都没有解决手头的问题。寻找一个真正的解或一个最好的解可能是一个很大的挑战。</li>
+                    <li>存在实际应用。最短路径、信号处理</li>
+                </ol>
 
-			<p>算法就是任何良定义的计算过程</p>
+                <h3>数据结构</h3>
 
-			<p>算法就是把输入转换成输出的计算步骤的一个序列</p>
+                <p>各种数据结构的优势和局限</p>
 
-			<p>算法是求解良说明的计算问题的工具</p>
+                <h3>技术</h3>
 
-			<h2>为什么研究算法</h2>
+                <p>实际问题中找不到已有算法来解决，学习自行设计算法的技术</p>
 
-			<h3>算法解决哪种问题</h3>
+                <h3>难题</h3>
 
-			<ol>
-				<li>存在许多候选解，但绝大多数候选解都没有解决手头的问题。寻找一个真正的解或一个最好的解可能是一个很大的挑战。</li>
-				<li>存在实际应用。最短路径、信号处理</li>
-			</ol>
+                <p>NP完全问题迄今为止未找到有效算法，在实际中，不用浪费时间寻找最好的解，开发有效的解即可</p>
 
-			<h3>数据结构</h3>
+                <h3>并行性</h3>
 
-			<p>各种数据结构的优势和局限</p>
+                <p>考虑多核计算</p>
 
-			<h3>技术</h3>
+                <h2>算法的作用</h2>
 
-			<p>实际问题中找不到已有算法来解决，学习自行设计算法的技术</p>
+                <h3>效率</h3>
 
-			<h3>难题</h3>
+                <p>在时间或空间方面，算法使用资源更有效率</p>
 
-			<p>NP完全问题迄今为止未找到有效算法，在实际中，不用浪费时间寻找最好的解，开发有效的解即可</p>
+                <h3>算法与其他技术</h3>
 
-			<h3>并行性</h3>
+                <p>算法同其他先进的计算机技术一样在快速发展</p>
 
-			<p>考虑多核计算</p>
+                <ul>
+                    <li>先进的计算机体系结构与制造技术</li>
+                    <li>易于使用、直观的图形用户界面</li>
+                    <li>面向对象的系统</li>
+                    <li>集成的万维网技术</li>
+                    <li>有线与无线网络的快速组网</li>
+                </ul>
 
-			<h2>算法的作用</h2>
-
-			<h3>效率</h3>
-
-			<p>在时间或空间方面，算法使用资源更有效率</p>
-
-			<h3>算法与其他技术</h3>
-
-			<p>算法同其他先进的计算机技术一样在快速发展</p>
-
-			<ul>
-				<li>先进的计算机体系结构与制造技术</li>
-				<li>易于使用、直观的图形用户界面</li>
-				<li>面向对象的系统</li>
-				<li>集成的万维网技术</li>
-				<li>有线与无线网络的快速组网</li>
-			</ul>
-
-			<p>是否具有算法知识与技术的坚实基础是区分真正熟练的程序员与初学者的一个特征。如果对算法懂的不多，可以完成一些任务，但是，如果有好的算法背景，可以做的事情就多得多</p>
-		</div>
-	</div>
-
+                <p>是否具有算法知识与技术的坚实基础是区分真正熟练的程序员与初学者的一个特征。如果对算法懂的不多，可以完成一些任务，但是，如果有好的算法背景，可以做的事情就多得多</p>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><a href="index.html">欢迎</a></li>
+                    <li class="openable open"><a>基础知识</a>
+                        <ul>
+                            <li><a href="01.html">算法在计算中的作用</a></li>
+                            <li><a href="02.html">算法基础</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
