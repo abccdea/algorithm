@@ -1,0 +1,160 @@
+<!doctype html>
+<html class="retina">
+
+<head>
+    <title>算法</title>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="css/global.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/web.css" media="screen" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+
+<body>
+    <div id="topBar">
+        <div class="centered">
+            <button name="menu" type="button" role="checkbox" aria-checked="false"></button>
+            <h1 class="wrap"><a href="index.html" class="gohome pro">算法</a></h1>
+        </div>
+    </div>
+    <div class="fixed">
+        <div class="centered">
+            <div id="content">
+                <h1>函数增长</h1>
+
+                <p>插入排序运行时间：$\Theta(n^2)$</p>
+
+                <p>归并排序运行时间：$\Theta(n \lg n)$</p>
+
+                <p>算法的渐近效率：输入规模足够大时，运行时间与增长量级有关</p>
+
+                <hr />
+
+                <h2>渐近记号</h2>
+
+                <p>插入排序最坏情况的运行时间 $an^2+bn+c$，写成 $\Theta(n^2)$ 除去了该函数的细节。同样的这种方式可以用来描述空间，还可以描述任何输入的运行时间，不仅是最坏情况。</p>
+
+                <h3>$\Theta$ 记号：给出函数的上界和下界</h3>
+
+                <p>$\Theta(g(n))=\{f(n): 存在正常量c_1、c_2和n_0，使得对所有n \geq n_0，有 0 \leq c_1g(n) \leq f(n) \leq c_2g(n)\}$</p>
+
+                <p>$f(n)\in\Theta(g(n))$也可以写为 $f(n)=\Theta(g(n))$</p>
+
+                <figure><img src="img/03-1.png" /></figure>
+
+                <p>渐近紧确界：对所有 $n \geq n_0$，$f(n)$ 在一个常量因子内等于 $g(n)$</p>
+
+                <h3>$O$ 记号：给出函数的上界</h3>
+
+                <p>$O(g(n))=\{f(n): 存在正常量c和n_0，使得对所有n \geq n_0，有 0 \leq f(n) \leq cg(n)\}$</p>
+
+                <figure><img src="img/03-2.png" /></figure>
+
+                <h3>$\Omega$ 记号：给出函数的下界</h3>
+
+                <p>$\Omega(g(n))=\{f(n): 存在正常量c和n_0，使得对所有n \geq n_0，有 0 \leq cg(n) \leq f(n) \}$</p>
+
+                <figure><img src="img/03-3.png" /></figure>
+
+                <p><strong>定理 $f(n)=\Theta(g(n))$，当且仅当 $f(n)=O(g(n))$ 且 $f(n)=\Omega(g(n))$</strong></p>
+
+                <h3>$\omicron$ 记号：给出函数的上界，没有等号</h3>
+
+                <p>$\omicron(g(n))=\{f(n): 存在正常量c和n_0，使得对所有n \geq n_0，有 0 \leq f(n) < cg(n)\}$</p> <p>$ \displaystyle
+                        \lim_{ n\to\infty } \frac {f(n)} {g(n)} = 0$</p>
+
+                <h3>$\omega$ 记号：给出函数的下界，没有等号</h3>
+
+                <p>$\Omega(g(n))=\{f(n): 存在正常量c和n_0，使得对所有n \geq n_0，有 0 \leq cg(n) < f(n) \}$</p> <p>$ \displaystyle
+                        \lim_{ n\to\infty } \frac {f(n)} {g(n)} = \infty$</p>
+
+                <h3>性质</h3>
+
+                <ol>
+                    <li>传递性：</li>
+                </ol>
+
+                <figure><img src="img/03-4.png" /></figure>
+
+                <ol>
+                    <li>自反性：</li>
+                </ol>
+
+                <figure><img src="img/03-5.png" /></figure>
+
+                <ol>
+                    <li>对称性：</li>
+                </ol>
+
+                <figure><img src="img/03-6.png" /></figure>
+
+                <ol>
+                    <li>转置对称性：</li>
+                </ol>
+
+                <figure><img src="img/03-7.png" /></figure>
+
+                <ol>
+                    <li>三分性：</li>
+                </ol>
+
+                <p>函数和实数比较</p>
+
+                <figure><img src="img/03-8.png" /></figure>
+
+                <p>对于任意两个实数$a$ 和 $b$，三种情况必有一个成立：$a < b$、$a=b$ 和 $a> b$。</p>
+
+                <p>但是函数却<strong>不成立</strong></p>
+
+                <p>例如：</p>
+
+                <p>$n$ 和 $n^{1 + \sin n}$，幂值在0和2之间摆动，介于两者之间</p>
+
+                <h2>标准记号与常用函数</h2>
+
+                <p>稍后会整理到mathematic文档中，并在此附上链接</p>
+
+                <h3>单调性</h3>
+
+                <h3>向下取整、向上取整</h3>
+
+                <h3>模运算</h3>
+
+                <h3>多项式</h3>
+
+                <h3>指数</h3>
+
+                <h3>对数</h3>
+
+                <h3>阶乘</h3>
+
+                <h3>多重函数</h3>
+
+                <h3>多重对数函数</h3>
+
+                <h3>斐波那契数</h3>
+
+                <hr />
+                <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=default' async></script>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><a href="index.html">欢迎</a></li>
+                    <li class="openable open"><a>基础知识</a>
+                        <ul>
+                            <li><a href="01.html">算法在计算中的作用</a></li>
+                            <li><a href="02.html">算法基础</a></li>
+                            <li><a href="03.html">函数的增长</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
