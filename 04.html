@@ -1,0 +1,97 @@
+<!doctype html>
+<html class="retina">
+
+<head>
+    <title>算法</title>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="css/global.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/web.css" media="screen" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=default' async></script>
+</head>
+
+<body>
+    <div id="topBar">
+        <div class="centered">
+            <button name="menu" type="button" role="checkbox" aria-checked="false"></button>
+            <h1 class="wrap"><a href="index.html" class="gohome pro">算法</a></h1>
+        </div>
+    </div>
+    <div class="fixed">
+        <div class="centered">
+            <div id="content">
+                <h1>分治策略</h1>
+
+                <p>三个步骤：</p>
+
+                <ol>
+                    <li>分解（Divide）：原问题划分为子问题</li>
+                    <li>解决（Conquer）：递归求解子问题，问题足够小，停止递归，直接求解</li>
+                    <li>合并（Combine）：将子问题的解组合成原问题的解</li>
+                </ol>
+
+                <p>下面使用分治策略求解举两个案例：最大子数组问题、矩阵乘法问题</p>
+
+                <p>求解递归的三种方法：代入法、递归树法、主方法</p>
+
+                <hr />
+
+                <h2>题目描述</h2>
+
+                <figure><img src="04-1.png" /></figure>
+
+                <p>买卖股票为了最大化收益，希望低价买进、高价卖出，但遗憾的是，在一段时期内，可能无法低买高卖，例如最低价格发生在第7天，最高价格发生在第1天，高价在前，低价在后。</p>
+
+                <p>输入：随机数组</p>
+
+                <p>输出：最大和的子数组</p>
+
+                <p><strong>算法设计</strong></p>
+
+                <ol>
+                    <li>暴力算法</li>
+                </ol>
+
+                <p>只要卖出日期在买入日期之后就可以，n天中共有 ${n \choose 2}$ 种组合，${n \choose 2} =\Theta(n^2)$</p>
+
+                <p>处理每对日期所花时间至少是常量，此方法运行时间为 $\Omega(n^2)$</p>
+
+                <ol>
+                    <li>递归算法</li>
+                </ol>
+
+                <p>为了设计出运行时间为$\omicron (n^2)$ 的算法，换个角度看问题，不从每日价格的角度看待输入数据，而是考察每日价格变化，第i天的价格变化定义为第i天和第i-1天的价格差。</p>
+
+                <figure><img src="04-2.png" /></figure>
+
+                <p><strong>伪代码</strong></p>
+
+                <hr />
+
+                <h2>题目描述</h2>
+
+                <hr />
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><a href="index.html">欢迎</a></li>
+                    <li class="openable open"><a>基础知识</a>
+                        <ul>
+                            <li><a href="01.html">算法在计算中的作用</a></li>
+                            <li><a href="02.html">算法基础</a></li>
+                            <li><a href="03.html">函数的增长</a></li>
+                            <li><a href="04.html">分治策略</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
